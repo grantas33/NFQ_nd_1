@@ -37,5 +37,13 @@ unset($studentB->group);
 var_dump(isset($studentB->group));
 echo $studentB->group;
 
+echo PHP_EOL.'-----__sleep, __wakeup, __debugInfo-----'.PHP_EOL;
+$grades = new \Components\Calculations\AverageGradeCalc(
+    array(5, 7, 6, 2, 3, 8, 6, 10));
+$grades = serialize($grades);
+echo "Serialized (string without average grade): ".PHP_EOL;
+var_dump($grades);
+$grades = unserialize($grades);
+echo "Unserialized (full object): ".PHP_EOL;
+var_dump($grades);
 
-// var_dump($student);

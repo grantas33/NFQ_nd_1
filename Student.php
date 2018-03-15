@@ -12,6 +12,7 @@ class Student
     private $surname;
     private $group;
 
+
     public function __construct($name, $surname, $group)
     {
         $this->name = $name;
@@ -75,8 +76,8 @@ class Student
     {
         echo "Getting '$name'".PHP_EOL;
         if(property_exists($this, $name)) {
-            if(isset($this->$name)) return $this->$name;
-            else echo "Property '$name' is not set".PHP_EOL;
+            if(!is_null($this->$name)) return $this->$name;
+            else echo $name." is undefined".PHP_EOL;
         }
         else echo "Student doesn't have a property named '$name'".PHP_EOL;
     }
