@@ -1,5 +1,6 @@
 <?php
-require  __DIR__ . '/vendor/autoload.php';
+//require  __DIR__ . '/vendor/autoload.php';
+require __DIR__."/autoloader.php";
 
 echo PHP_EOL.'-----__construct-----'.PHP_EOL;
 $student = new Student('John', 'Goate', 'SSU-5/2');
@@ -46,4 +47,9 @@ var_dump($grades);
 $grades = unserialize($grades);
 echo "Unserialized (full object): ".PHP_EOL;
 var_dump($grades);
+
+$LessonAlarm = new \Components\Alerts\Alarms\LessonTimeAlarm();
+$BreakAlarm = new \Components\Alerts\Alarms\BreakTimeAlarm();
+$LessonAlarm->end();
+$BreakAlarm->start();
 
